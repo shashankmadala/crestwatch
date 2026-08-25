@@ -56,3 +56,15 @@ Total monthly cost: $0 (Vercel hobby + free federal APIs).
 
 AI-assisted build, fully disclosed — see [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
 The product itself uses no AI. MIT licensed.
+
+## Measured
+
+- Lighthouse (desktop, production build): **performance 100 · accessibility
+  100 · best-practices 100** on both the setup shell and the Why screen.
+- Total JS: ~155–170 KB gzip per page load — no map library; the water
+  scene and the stage chart are hand-rolled SVG.
+- 133 unit tests (Vitest) · 13 end-to-end tests (Playwright, recorded
+  federal-API fixtures — no network needed).
+
+Screenshots of every screen live in [docs/screenshots](docs/screenshots)
+(regenerate with `npm run screenshots`).
