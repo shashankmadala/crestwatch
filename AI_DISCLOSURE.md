@@ -17,6 +17,12 @@ build the software, not to make predictions.
 
 - Project scaffolding (Next.js, Vitest, Playwright, CI)
 - First drafts of application code, marked `ai-assist` in git history
+- An adversarial code review of the verdict math, the API routes, the
+  federal-API adapters and the client trust boundaries. It found 19 real
+  defects — including a case where a river that had already crested could
+  hide a second crest still coming, and a case where a "major flooding"
+  forecast could be described as "below flood stage" — all fixed in commit
+  `446f012` and pinned with regression tests.
 
 ## What the team wrote / owns
 
