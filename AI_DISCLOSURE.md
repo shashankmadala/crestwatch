@@ -1,41 +1,100 @@
 # AI Disclosure
 
-CrestWatch is a Congressional App Challenge entry. Competition rules allow
-AI tools with full disclosure, as long as AI is not the entire technical
-work. This file is the running record of that disclosure. Commits where AI
-wrote code are tagged `ai-assist` in the commit message.
+CrestWatch is a Congressional App Challenge 2026 entry. This file is the
+plain record of how AI was used to build it.
 
-**The product itself uses no AI.** CrestWatch is public federal data and
-arithmetic — gauge readings, elevations, and subtraction. AI was used to
-build the software, not to make predictions.
+> [!IMPORTANT]
+> **The 2026 rules, word for word:** "The use of AI tools in app development
+> for the Congressional App Challenge is permitted, provided that all AI
+> usage is fully disclosed in the submission materials. AI may only be used
+> to support specific aspects of the project and **must not constitute the
+> entirety of the technical development**. Participants are expected to
+> demonstrate significant individual contributions and technical
+> understanding of their app."
+>
+> Right now AI has done the technical work in this repository. Every commit
+> so far is tagged `[ai-assist]`. That does not meet the rule yet. **The
+> student team must do real technical work themselves and commit it under
+> their own names, without the `[ai-assist]` tag and without an AI
+> co-author line, before submitting.** The list is under
+> [What the team still has to do](#what-the-team-still-has-to-do).
+
+## The product uses no AI
+
+CrestWatch itself is public data and arithmetic: river gauge readings,
+forecasts, ground heights, and subtraction. No AI model runs in the app or
+makes any prediction. AI was used to build the software.
 
 ## Tools used
 
-- Claude Code (Anthropic) — code scaffolding and implementation assistance
+- **Claude Code (Anthropic).** An AI coding tool. It wrote the code, tests
+  and docs described below.
 
 ## What AI wrote
 
-- Project scaffolding (Next.js, Vitest, Playwright, CI)
-- First drafts of application code, marked `ai-assist` in git history
-- An adversarial code review of the verdict math, the API routes, the
-  federal-API adapters and the client trust boundaries. It found 19 real
-  defects — including a case where a river that had already crested could
-  hide a second crest still coming, and a case where a "major flooding"
-  forecast could be described as "below flood stage" — all fixed in commit
-  `446f012` and pinned with regression tests.
+Claude Code wrote essentially all of the application code, the tests, and
+the docs in this repository, from the first commit on Aug 25, 2026 to now.
+That includes:
 
-## What the team wrote / owns
+- The project setup (Next.js, Vitest, Playwright, CI).
+- All of the application code: the screens, the API routes, the adapters
+  for the public data services, the verdict math in `lib/surveyor.ts`, and
+  the verdict thresholds in `lib/config.ts` (`BANDS`).
+- All of the words the app shows (`lib/copy.ts`), including the verdict
+  sentences. No student has tuned them yet, even where an earlier comment
+  in that file said "hand-tuned by the team". An AI commit wrote that
+  comment.
+- The unit tests, the end-to-end tests, and the recorded test data.
+- The README, this file, `docs/SUBMISSION.md`, `docs/DEMO_SCRIPT.md`, and
+  the empty template in `docs/VALIDATION.md`.
+- An adversarial review of the verdict math, the API routes, the data
+  adapters and the client trust boundaries. It found 19 real defects, for
+  example a river that had already crested hiding a second crest still
+  coming. They were fixed in commit `446f012` with regression tests.
+- This week's audit (Oct 23, 2026): several Claude Code agents tested the
+  app on desktop and mobile, checked accessibility, upstream data risks and
+  the submission rules, and wrote a list of findings. Claude Code agents
+  then fixed those findings in separate work packages. All of that code is
+  AI-written too.
 
-The team is responsible for — and must be able to explain — every part of
-this list. Items start as AI drafts and are hand-tuned by the team before
-submission:
+Every commit made with Claude Code is tagged `[ai-assist]` in its commit
+message, so the git history shows exactly what AI wrote.
 
-- [ ] The Surveyor verdict thresholds (`lib/config.ts` BANDS) — tuned
-      against the Appendix H validation pass
-- [ ] The verdict sentence copy (`lib/copy.ts`)
-- [ ] The accuracy validation (`docs/VALIDATION.md`) — 10 real addresses
-      checked against NWS inundation maps and 2019 flood photos
-- [ ] The story stats on the About page, re-verified against sources
+## What the team has done
 
-Judges will ask how the elevation math works. The explanation the team
-gives must be their own.
+TEAM: write this section yourselves, in your own words. List only what you
+actually did (for example the idea, decisions you made, testing with
+families, the validation pass). Leave it empty rather than guess.
+
+## What the team still has to do
+
+None of these is done. Tick a box only when the work is really finished and
+committed by a student.
+
+- [ ] **Validation pass.** Check 10 real addresses and the 2019 replay
+      against NWS inundation maps, FEMA flood zones and news photos, and
+      fill in `docs/VALIDATION.md` yourselves (steps in
+      `docs/SUBMISSION.md`).
+- [ ] **Threshold decision.** Decide the verdict bands in `lib/config.ts`
+      (`BANDS`) from what the validation pass shows. Change them, or write
+      in `docs/VALIDATION.md` why 0.5 ft and 3.5 ft stay.
+- [ ] **About page stats.** Re-check the 2019 figures on the About page
+      ("over half a million acres", "about six months") against Mississippi
+      Today or MPB coverage, and add a source link.
+- [ ] **The verdict sentences.** Read every verdict sentence in
+      `lib/copy.ts` and change any you would say differently. Until you
+      do, no comment in the code should say a student tuned them.
+- [ ] **The video.** Film it yourselves, in your own voices, with each
+      participant's name, and say that AI wrote the code
+      (`docs/DEMO_SCRIPT.md`).
+- [ ] **Explain the math.** Every teammate can explain, without notes, how
+      gauge zero plus the river stage becomes the water's height above sea
+      level, and how that is compared with the ground height at an address.
+      Judges may ask, and the rules let them ask to see the source code.
+
+## Where this disclosure goes in the submission
+
+The rules say AI use must be disclosed "in the submission materials", not
+only in this repository. Say it in the written answers (the technical
+difficulty answer is a natural place) and in the video. `docs/SUBMISSION.md`
+has the checklist.
