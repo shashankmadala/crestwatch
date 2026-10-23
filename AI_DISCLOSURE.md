@@ -13,7 +13,10 @@ plain record of how AI was used to build it.
 > understanding of their app."
 >
 > Right now AI has done the technical work in this repository. Every commit
-> so far is tagged `[ai-assist]`. That does not meet the rule yet. **The
+> so far was made with Claude Code. All of them are tagged `[ai-assist]`
+> except eight merge commits from Oct 23, 2026 titled "Merge branch
+> 'cw/…' into integration", which Claude Code made while it combined its
+> work packages. That does not meet the rule yet. **The
 > student team must do real technical work themselves and commit it under
 > their own names, without the `[ai-assist]` tag and without an AI
 > co-author line, before submitting.** The list is under
@@ -57,8 +60,11 @@ That includes:
   then fixed those findings in separate work packages. All of that code is
   AI-written too.
 
-Every commit made with Claude Code is tagged `[ai-assist]` in its commit
-message, so the git history shows exactly what AI wrote.
+Commits made with Claude Code are tagged `[ai-assist]` in the commit
+message. Eight are not: the merge commits from Oct 23, 2026 titled "Merge
+branch 'cw/…' into integration". Claude Code made those too, while it
+combined the work packages. So until the team commits its own work, every
+commit in the history is AI work, tagged or not.
 
 ## What the team has done
 
