@@ -59,6 +59,14 @@ That includes:
   the submission rules, and wrote a list of findings. Claude Code agents
   then fixed those findings in separate work packages. All of that code is
   AI-written too.
+- The Oct 23 to 24, 2026 feature sprint, also written by Claude Code: "Your
+  flood number" with its what-if slider, "Past floods here", the home page
+  river check ("Right now on our rivers"), Read it to me, Send to family,
+  Add the crest to my calendar, keeping the last answer for when the signal
+  drops, and the integration that wired them into the Watch, Why, Places,
+  home and About screens. Claude Code agents built each package, reviewed
+  the others' work, and merged them. Their tests and these doc changes are
+  AI-written too.
 
 Commits made with Claude Code are tagged `[ai-assist]` in the commit
 message. Eight are not: the merge commits from Oct 23, 2026 titled "Merge
